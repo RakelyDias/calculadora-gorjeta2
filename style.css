@@ -73,8 +73,9 @@ main {
                 opacity: 0.35;
               color: var(--sherpa-blue);
             }
-        }   
+        }
 }
+
 
 
 
@@ -168,5 +169,63 @@ main {
         border-radius: .5rem;
         font-weight: 700;
         padding-bottom: .9rem;
+    }
+}
+
+
+input::-webkit-inner-spin-button, 
+input::-webkit-outer-spin-button {
+    display: none;
+}
+
+@media (min-width: 920px) {
+
+
+    main {
+        display: flex;
+        max-width: 92rem;
+        margin-inline: auto;
+        border-radius: 2.5rem;
+        gap: 4.8rem ;
+        padding: 4.8rem;
+    }
+
+    section {
+        width: 100%;
+    }
+
+
+    .info {
+        .tip {
+            div{
+                grid-template-columns: repeat(3 , 1fr);
+
+                button:hover {
+                    cursor: pointer;
+                    background: var(--water-leaf);
+                    transition: .3s;
+                }
+            }
+        }
+    }
+    
+    .results {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5.6rem 4rem 4rem;
+
+        .amount, 
+        .total {
+            strong{
+                font-size: 4.8rem;
+            }
+        }
+        
+        button:hover {
+            transition: .3s;
+            background: var(--water-leaf);
+            cursor: pointer;
+          }
     }
 }
