@@ -102,10 +102,12 @@ main {
             border-radius: .5rem;
 
         }
+        
 
         .button-selected {
             background: var(--topaz);
         }
+
 
         input {
             width: 100%;
