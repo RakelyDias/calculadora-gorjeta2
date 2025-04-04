@@ -9,27 +9,55 @@ billInput.addEventListener('input', receiveBillValue)
 
 function receiveBillValue() {
     bill = billInput.valueAsNumber
-    calculate()
 }
 
 //receber o numero de pessoas
 
 let numberOfPeopleInput = document.querySelector ("#people")
-numberOfPeopleInput.addEventListener('input', receiveNumberOfPeople)
+numberOfPeopleInput.addEventListener('input', receiveNumberOfPeople )
 
-function receiveNumberOfPeople(){
+function receiveNumberOfPeople() {
     numberOfPeople  = numberOfPeopleInput.valueAsNumber
     calculate()
 }
 
 function receiveTipPercentage (value) {
-    let buttonSelected = document.querySelector()
+
+    if (buttonSelected !== null){
+        buttonSelected.classList.remove("button-selected")
+    }
+
+  buttonSelected = document.querySelector (`#button-${value}`)
+    buttonSelected.classList.add("button-selected")
+    tipPercentage = value / 100
+    
+    let customTipInput = document.querySelector("#custom-tip")
+    customTipInput.value = ''
+
     calculate()
 }
 
+function receiveCustomTipPercentage () {
+    let customTipInput = document.querySelector("#custom-tip")
+    tipPercentage = customTipInput.valueAsNumber / 100
+    removeButtonSelected()
+    calculate()
+}
+
+
 function calculate() {
+
     if (bill !== 0 && tipPercentage !== 0 && numberOfPeople !== 0){
-        console.log("Calcular")
+
+       let  tipAmountStrong = document.querySelector(".amount strong")
+       let tipAmountPerson = (bill *  tipPercentage) / numberOfPeople
+       tipAmountStrong.innerText = `$${ tipAmountPerson.toFixed(2)}`
+
+       let totalStrong = document.querySelector(".total strong")
+       let total = (bill / numberOfPeople) + tipAmountPerson
+
+       totalStrong.innerText = `$${total.toFixed(2)}`
+
     } else {
         console.log ("Ainda não é possível calcular")
     }
